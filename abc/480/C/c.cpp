@@ -8,16 +8,18 @@ int main(){
     ll N,K,T;
     cin>>N>>K>>T;
     vector<ll> A(N, 0);
-    for(int i=0;i<N;i++){
+    for(ll i=0;i<N;i++){
         cin >> A[i];
     }
+
+    sort(A.begin(), A.end());
 
     ll ans=0;
     ll last=T;
     // startを決める
     ll start=0;
     ll index=N-1;
-    for(int i=N-1;i>=0;i--){
+    for(ll i=N-1;i>=0;i--){
         // cout << "A[" << i << "]=" << A[i] << ", T=" << T << endl;
         if(A[i] <= T) {
             start=A[i];
@@ -29,7 +31,7 @@ int main(){
     // cout << "start: " << start << endl;
 
     double value;
-    for(int i=0;i<index+1;i++){
+    for(ll i=0;i<index+1;i++){
         // cout << "start: " << start << ", last: " << last << endl;
         value = double(last - (start + K)) / double(K);
         last=start;
